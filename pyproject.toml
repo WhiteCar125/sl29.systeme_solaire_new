@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sl29.systeme_solaire"
+version = "0.0.1"
+description = "Un projet d'application web à but pédagogique sur le système solaire."
+authors = [
+    { name = "Yves Cadour", email = "yves.cadour@saint-louis29.net" },
+]
+readme = "README.md"
+requires-python = ">=3.6"
+license = { file = "LICENSE" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "setuptools",
+    "flask",
+]
+
+[project.urls]
+Homepage = "https://github.com/saintlouis29/sl29.systeme_solaire"
+
+[tool.setuptools]
+packages = ["sl29.systeme_solaire"]
+package-dir = { "" = "src" }
+
+# Configuration pour Sphinx
+[tool.sphinx]
+source-dir = "doc"
+build-dir = "doc/_build"
+
+[project.optional-dependencies]
+# Dépendances de documentation(Sphinx et extensions)
+doc = [
+    "toml",
+    "sphinx>=7.0.0",  # Sphinx pour la documentation
+    "sphinx-rtd-theme>=1.0.0",  # Thème ReadTheDocs pour Sphinx
+    "sphinx-autodoc-typehints>=1.0.0",  # Support des annotations de type
+]
+
+# Dépendances de développement
+dev = [
+    "ipykernel",
+    # Ajoutez ici d'autres dépendances de développement
+]
+
+# Dépendances de tests
+test = [
+    "pytest",
+    "pytest-cov",
+    # Ajoutez ici d'autres dépendances de tests
+]
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
+pythonpath = ["src"]

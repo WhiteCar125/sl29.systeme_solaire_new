@@ -1,0 +1,4 @@
+.. automodule:: sl29.systeme_solaire.app
+   :members:
+   :undoc-members:
+   :show-inheritance:
