@@ -12,9 +12,9 @@
 
     <p>Les 3 planètes du système solaire sont :</p>
     <ol>
-      <li>Mercury</li>
-      <li>Venus</li>
-      <li>Earth</li>
-    </ol>
-  </body>
+        {% for p in planets %}
+        <li>{{ p.name }}</li>
+        {% endfor %}
+      </ol>
+    </body>
 </html>
