@@ -1,20 +1,47 @@
 <!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Le TP web</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <h1>Application sur le système solaire</h1>
-    <p>Voici une petite application sur le système solaire.</p>
+<html>
+<head>
+    <title>Système Solaire - Apprentissage des paramètres</title>
+</head>
+<body>
+    <h1>Exploration du Système Solaire</h1>
 
-    <p>Les 3 planètes du système solaire sont :</p>
-    <ol>
-        {% for p in planets %}
-        <li>{{ p.name }}</li>
+    <h2>Comment utiliser les paramètres:</h2>
+    <p>Les URLs suivantes démontrent comment passer des paramètres:</p>
+    <ul>
+        <li><a href="/planete?id=3">/planete?id=3</a> - Affiche la Terre</li>
+        <li><a href="/satellite?id=1">/satellite?id=1</a> - Affiche la Lune</li>
+    </ul>
+
+    <h2>Liste des planètes:</h2>
+    <ul>
+        {% for planet in planets %}
+            <li>
+                <a href="/planete?id={{ planet.id }}">
+                    {{ planet.name }} (ID: {{ planet.id }})
+                </a>
+                - Exemple: /planete?id={{ planet.id }}
+            </li>
         {% endfor %}
-      </ol>
-    </body>
+    </ul>
+
+    <div style="margin-top: 2em; padding: 1em; background: #f0f0f0;">
+        <h3>Explications pour les élèves:</h3>
+        <p>Dans l'URL <code>/planete?id=3</code> :</p>
+        <ul>
+            <li><code>id</code> est le nom du paramètre</li>
+            <li><code>3</code> est la valeur du paramètre</li>
+            <li>Dans Flask, on récupère cette valeur avec <code>request.args.get('id')</code></li>
+        </ul>
+    </div>
+
+    <h2>Tester avec un ID:</h2>
+    <form action="/planete" method="get">
+        <label for="planet_id">ID de planète:</label>
+        <input type="number" id="planet_id" name="id" min="1" max="9">
+        <button type="submit">Voir la planète</button>
+    </form>
+
+
+</body>
 </html>

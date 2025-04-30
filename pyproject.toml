@@ -20,6 +20,7 @@ classifiers = [
 dependencies = [
     "setuptools",
     "flask",
+    "bootstrap-flask",
 ]
 
 [project.urls]
