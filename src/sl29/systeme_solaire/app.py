@@ -60,8 +60,14 @@ def show_satellite():
     # - planet
 
 
-def get_planet_by_id(planet_id):
-    """Version avec boucle for pour remplacer next()"""
+def get_planet_by_id(planet_id:int)->dict|None:
+    """Retourne la planète sous forme de dictionnaire
+
+    :param planet_id: l'id de la planète
+    :type planet_id: int
+    :return:la planète ou None
+    :rtype: dict|None
+    """
     for planet in planets:
         if planet['id'] == planet_id:
             return planet
