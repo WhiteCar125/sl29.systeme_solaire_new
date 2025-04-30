@@ -1,7 +1,8 @@
 """Un module pour l'application"""
 
-from flask import Flask, render_template, request
 import json
+from flask import Flask, render_template, request
+
 
 app = Flask(__name__)
 
@@ -28,7 +29,7 @@ def show_planet():
         return "Erreur: Le paramètre 'id' est requis. Exemple: /planete?id=3", 400
 
     # Recherche de la planète
-    planet_data = next((p for p in planets if p['id'] == planet_id), None)
+    planet_data = get_planet_by_id(planet_id)
     if not planet_data:
         return f"Erreur: Aucune planète trouvée avec l'ID {planet_id}", 404
 
@@ -43,21 +44,28 @@ def show_planet():
 @app.route('/satellite')
 def show_satellite():
     """Montre comment gérer plusieurs paramètres"""
-    satellite_id = request.args.get('id', type=int)
 
-    if satellite_id is None:
-        return "Erreur: Le paramètre 'id' est requis. Exemple: /satellite?id=1", 400
+    # A FAIRE
 
-    satellite_data = next((s for s in satellites if s['id'] == satellite_id), None)
-    if not satellite_data:
-        return f"Erreur: Aucun satellite trouvé avec l'ID {satellite_id}", 404
+    # récupérer l'id du sattelite depuis la requete
+    # Si l'id n'est pas trouvé, retourner un message d'erreur et un status 404
 
-    planet_data = next((p for p in planets if p['id'] == satellite_data['planetId']), None)
+    # Récuperer les données du satellite
+    # Si aucune donnée trouvée, retourner un message d'erreur et un status 404
 
-    return render_template('satellite.html',
-                         satellite=satellite_data,
-                         planet=planet_data,
-                         request_args=dict(request.args))  # Pour démo pédagogique
+    # récupérer les données de la planète associée.
+
+    # retourner le template 'satellite.html' avec les variables:
+    # - satellite
+    # - planet
+
+
+def get_planet_by_id(planet_id):
+    """Version avec boucle for pour remplacer next()"""
+    for planet in planets:
+        if planet['id'] == planet_id:
+            return planet
+    return None  # Si aucune planète trouvée
 
 if __name__ == '__main__':
     app.run(debug=True)
