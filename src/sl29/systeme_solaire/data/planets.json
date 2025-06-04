@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Mercury",
+    "name": "Mercure",
     "mass": 0.33,
     "diameter": 4879.0,
     "density": 5427.0,
@@ -49,7 +49,7 @@
   },
   {
     "id": 3,
-    "name": "Earth",
+    "name": "Terre",
     "mass": 5.97,
     "diameter": 12756.0,
     "density": 5514.0,
@@ -121,7 +121,7 @@
   },
   {
     "id": 6,
-    "name": "Saturn",
+    "name": "Saturne",
     "mass": 568.0,
     "diameter": 120536.0,
     "density": 687.0,
@@ -193,7 +193,7 @@
   },
   {
     "id": 9,
-    "name": "Pluto",
+    "name": "Pluton",
     "mass": 0.0146,
     "diameter": 2370.0,
     "density": 2095.0,

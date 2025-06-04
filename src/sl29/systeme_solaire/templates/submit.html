@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload</title>
+</head>
+    <body>
+        <br>
+        {% if form.errors %}
+        <ul>
+            {% for message in form.errors.values() %}
+              <li><p>Error : {{ message[0] }}</p></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            {{ form.file() }}
+            {{ form.submit() }}
+        </form>
+    </body>
+</html>

@@ -21,7 +21,9 @@ dependencies = [
     "setuptools",
     "flask",
     "bootstrap-flask",
-]
+    "Flask-WTF",
+    "WTForms",
+    ]
 
 [project.urls]
 Homepage = "https://github.com/saintlouis29/sl29.systeme_solaire"
